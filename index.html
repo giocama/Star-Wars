@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Star Wars</title>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+        <link href="apisw.css" rel="stylesheet">
+    </head>
+    
+    <body class="main-force">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="text-center" ng-app="apiApp" ng-controller="apiAppCtrl as vm">
+                        <br>
+                        <img src="sw.png" alt="Star Wars">
+                        <h1>Datos de la Fuerza</h1>
+                        <p>Selecciona que quieres ver</p>
+                        <div class="center-block list-force">
+                            <select class="form-control" ng-model="vm.url" ng-change="vm.buscarData()">
+                                <option selected="selected">Seleccione</option>
+                                <option value="https://swapi.dev/api/people/?format=json">Personas</option>
+                                <option value="https://swapi.dev/api/planets/?format=json">Planetas</option>
+                                <option value="https://swapi.dev/api/vehicles/?format=json">Vehiculos</option>
+                            </select>
+                            <br>
+                            <ul class="list-group">
+                                <li class="list-group-item" ng-repeat="fuerza in vm.fuerzas"><span class="item-force">{{fuerza.name}}</span></li>
+                            </ul>
+                        </div>	
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+        <script src="swapi.js"></script>
+    </body>
+    
+    </html>
